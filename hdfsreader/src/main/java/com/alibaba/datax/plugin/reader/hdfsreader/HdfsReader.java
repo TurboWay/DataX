@@ -183,7 +183,9 @@ public class HdfsReader extends Reader {
             if (0 == splitNumber) {
                 // throw DataXException.asDataXException(HdfsReaderErrorCode.EMPTY_DIR_EXCEPTION,
                 //        String.format("未能找到待读取的文件,请确认您的配置项path: %s", this.readerOriginConfig.getString(Key.PATH)));
-                String.format("未能找到待读取的文件,请确认您的配置项path: %s", this.readerOriginConfig.getString(Key.PATH));
+                LOG.warn(String.format("未能找到待读取的文件,请确认您的配置项path: %s", this.readerOriginConfig.getString(Key.PATH)));
+                LOG.info("split() end");
+                LOG.info("Task exited with return code 0");
                 System.exit(0);
             }
 
